@@ -91,7 +91,7 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
 
 	private Optional<?> generateIOTResponse(Optional<CSVFileDetails> deviceDetails) {
 
-		if (deviceDetails.isEmpty()) {
+		if (!deviceDetails.isPresent()) {
 			ResponseDetails resp = new ResponseDetails();
 			resp.setDescription(CSVFileUploadConstant.ERROR_NO_DEVICE_IN_PAST);
 			return Optional.of(resp);
